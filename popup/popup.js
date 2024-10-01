@@ -7,6 +7,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let tabs = [];
 
+    // Function to create a safe list item for each tab
+    function createTabListItem(tab, index) {
+        const li = document.createElement('li');
+        const label = document.createElement('label');
+        const checkbox = document.createElement('input');
+        const strong = document.createElement('strong');
+        const small = document.createElement('small');
+
+        // Set the checkbox attributes
+        checkbox.type = 'checkbox';
+        checkbox.id = `tab-${index}`;
+        checkbox.checked = true;
+
+        // Set the text content for the tab title and URL
+        strong.textContent = tab.title;
+        small.textContent = tab.url;
+
+        // Append the elements into the list item
+        label.appendChild(checkbox);
+        label.appendChild(strong);
+        label.appendChild(document.createElement('br'));
+        label.appendChild(small);
+        li.appendChild(label);
+
+        return li;
+    }
+
     // Function to fetch and populate the list of tabs that will be closed
     function populateTabList() {
         chrome.runtime.sendMessage({ action: "getTabsToClose" }, function (response) {
@@ -16,14 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Populate the list of tabs
             tabs.forEach((tab, index) => {
-                let li = document.createElement("li");
-                li.innerHTML = `
-                    <label>
-                        <input type="checkbox" id="tab-${index}" checked />
-                        <strong>${tab.title}</strong><br />
-                        <small>${tab.url}</small>
-                    </label>
-                `;
+                let li = createTabListItem(tab, index);
                 tabList.appendChild(li);
 
                 // Add event listener for checkbox changes
