@@ -1,0 +1,39 @@
+body {
+            width: auto;
+            font-family:"Segoe UI", "San Francisco", "Ubuntu", "Fira Sans", "Roboto", "Arial", "Helvetica",
+ sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 500px
+        }
+
+        button {
+            width: 100%;
+            padding: 5px;
+            margin-top: 10px
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            overflow-y: auto;
+            flex-grow: 1;
+            max-height: 300px
+        }
+
+        li {
+            margin: 5px 0;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .tab-count {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        .download-btn {
+            margin-top: 10px;
+            width: auto;
+        }

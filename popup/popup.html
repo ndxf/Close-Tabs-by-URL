@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="popup.css" />
+    
+</head>
+
+<body>
+    <h3>Close Tabs by URL</h3>
+    <p>
+        <strong>Tabs to be closed:</strong>
+        <span class="tab-count" id="tab-count">0 tabs</span>
+        <button class="download-btn" id="download-btn">Download all tabs in this list</button>
+    </p>
+	<label>
+		<input type="checkbox" id="check-all"> Check/Uncheck All
+	</label>
+	<p></p>
+    <ul id="tab-list"></ul>
+    <br />
+    <button id="close-selected-btn">Close Selected Tabs</button>
+    <script src="popup.js"></script>
+</body>
+
+</html>
